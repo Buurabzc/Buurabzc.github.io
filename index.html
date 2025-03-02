@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envanter Yönetim Sistemi</title>
+    <script>
+        // Oturum kontrolü
+        if (!sessionStorage.getItem('isLoggedIn')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <style>
+        .logout-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(145deg, #1a1a1a, #292929);
+            color: var(--text-light);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(145deg, #292929, #1a1a1a);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logout-btn:active {
+            transform: translateY(0);
+        }
+
+        .logout-btn i {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        [data-theme='dark'] .logout-btn {
+            background: linear-gradient(145deg, #292929, #1a1a1a);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme='dark'] .logout-btn:hover {
+            background: linear-gradient(145deg, #1a1a1a, #292929);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-wrapper"></div>
+    <nav class="navbar">
+        <div class="nav-buttons">
+            <div class="left-buttons">
+                <button onclick="showAllItems()" class="nav-btn">Bütün Emanetler</button>
+                <button onclick="showDepo('depo1')" class="nav-btn">Depo 1</button>
+                <button onclick="showDepo('depo2')" class="nav-btn">Depo 2</button>
+                <button onclick="showDepo('feto')" class="nav-btn">Fetö</button>
+                <button onclick="showDepo('eskiFeto')" class="nav-btn">Eski Fetö</button>
+                <button onclick="showDepo('buro')" class="nav-btn">Büro</button>
+            </div>
+            <div class="right-buttons">
+                <button onclick="showAddModal()" class="add-btn">Veri Ekle</button>
+            </div>
+        </div>
+        <div class="theme-container">
+            <input type="checkbox" name="checkbox" id="checkbox" class="theme-switch__checkbox" />
+            <label for="checkbox" class="label"></label>
+        </div>
+    </nav>
+
+    <div class="input-container">
+        <input type="text" id="searchInput" placeholder="Arama">
+    </div>
+
+    <div id="depoContainer" class="depo-container">
+        <table id="depoTable" class="depo-table">
+            <thead>
+                <tr>
+                    <th>Sıra No</th>
+                    <th>Emanet No</th>
+                    <th>Dolap No</th>
+                    <th>Raf No</th>
+                    <th>Notlar</th>
+                    <th id="depoAdiHeader" style="display: none;">Depo Adı</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Kayıt Düzenle</h2>
+            <form id="editForm">
+                <input type="text" id="siraNo" placeholder="Sıra No">
+                <input type="text" id="emanetNo" placeholder="Emanet No">
+                <input type="text" id="dolapNo" placeholder="Dolap No">
+                <input type="text" id="rafNo" placeholder="Raf No">
+                <textarea id="notlar" placeholder="Notlar"></textarea>
+                <button type="submit">Kaydet</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddModal()">&times;</span>
+            <h2 class="modal-title">Yeni Veri Ekle</h2>
+            <form id="addForm">
+                <input type="text" id="newSiraNo" placeholder="Sıra No">
+                <input type="text" id="newEmanetNo" placeholder="Emanet No">
+                <input type="text" id="newDolapNo" placeholder="Dolap No">
+                <input type="text" id="newRafNo" placeholder="Raf No">
+                <textarea id="newNotlar" placeholder="Notlar"></textarea>
+                <button type="submit">Kaydet</button>
+            </form>
+        </div>
+    </div>
+
+    <button onclick="logout()" class="logout-btn">
+        <i class="fas fa-sign-out-alt"></i>
+        Çıkış Yap
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html> 
+
+  

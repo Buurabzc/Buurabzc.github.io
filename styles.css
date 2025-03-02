@@ -1,0 +1,741 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.background-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    --c: var(--primary-color);
+    background-color: #000;
+    background-image: radial-gradient(4px 100px at 0px 235px, var(--c), #0000),
+        radial-gradient(4px 100px at 300px 235px, var(--c), #0000),
+        radial-gradient(1.5px 1.5px at 150px 117.5px, var(--c) 100%, #0000 150%),
+        radial-gradient(4px 100px at 0px 252px, var(--c), #0000),
+        radial-gradient(4px 100px at 300px 252px, var(--c), #0000),
+        radial-gradient(1.5px 1.5px at 150px 126px, var(--c) 100%, #0000 150%),
+        radial-gradient(4px 100px at 0px 150px, var(--c), #0000),
+        radial-gradient(4px 100px at 300px 150px, var(--c), #0000),
+        radial-gradient(1.5px 1.5px at 150px 75px, var(--c) 100%, #0000 150%),
+        radial-gradient(4px 100px at 0px 253px, var(--c), #0000),
+        radial-gradient(4px 100px at 300px 253px, var(--c), #0000),
+        radial-gradient(1.5px 1.5px at 150px 126.5px, var(--c) 100%, #0000 150%),
+        radial-gradient(4px 100px at 0px 204px, var(--c), #0000),
+        radial-gradient(4px 100px at 300px 204px, var(--c), #0000),
+        radial-gradient(1.5px 1.5px at 150px 102px, var(--c) 100%, #0000 150%),
+        radial-gradient(4px 100px at 0px 134px, var(--c), #0000),
+        radial-gradient(4px 100px at 300px 134px, var(--c), #0000),
+        radial-gradient(1.5px 1.5px at 150px 67px, var(--c) 100%, #0000 150%),
+        radial-gradient(4px 100px at 0px 179px, var(--c), #0000),
+        radial-gradient(4px 100px at 300px 179px, var(--c), #0000),
+        radial-gradient(1.5px 1.5px at 150px 89.5px, var(--c) 100%, #0000 150%),
+        radial-gradient(4px 100px at 0px 299px, var(--c), #0000),
+        radial-gradient(4px 100px at 300px 299px, var(--c), #0000),
+        radial-gradient(1.5px 1.5px at 150px 149.5px, var(--c) 100%, #0000 150%),
+        radial-gradient(4px 100px at 0px 215px, var(--c), #0000),
+        radial-gradient(4px 100px at 300px 215px, var(--c), #0000),
+        radial-gradient(1.5px 1.5px at 150px 107.5px, var(--c) 100%, #0000 150%),
+        radial-gradient(4px 100px at 0px 281px, var(--c), #0000),
+        radial-gradient(4px 100px at 300px 281px, var(--c), #0000),
+        radial-gradient(1.5px 1.5px at 150px 140.5px, var(--c) 100%, #0000 150%),
+        radial-gradient(4px 100px at 0px 158px, var(--c), #0000),
+        radial-gradient(4px 100px at 300px 158px, var(--c), #0000),
+        radial-gradient(1.5px 1.5px at 150px 79px, var(--c) 100%, #0000 150%),
+        radial-gradient(4px 100px at 0px 210px, var(--c), #0000),
+        radial-gradient(4px 100px at 300px 210px, var(--c), #0000),
+        radial-gradient(1.5px 1.5px at 150px 105px, var(--c) 100%, #0000 150%);
+    background-size:
+        300px 235px,
+        300px 235px,
+        300px 235px,
+        300px 252px,
+        300px 252px,
+        300px 252px,
+        300px 150px,
+        300px 150px,
+        300px 150px,
+        300px 253px,
+        300px 253px,
+        300px 253px,
+        300px 204px,
+        300px 204px,
+        300px 204px,
+        300px 134px,
+        300px 134px,
+        300px 134px,
+        300px 179px,
+        300px 179px,
+        300px 179px,
+        300px 299px,
+        300px 299px,
+        300px 299px,
+        300px 215px,
+        300px 215px,
+        300px 215px,
+        300px 281px,
+        300px 281px,
+        300px 281px,
+        300px 158px,
+        300px 158px,
+        300px 158px,
+        300px 210px,
+        300px 210px,
+        300px 210px;
+    animation: hi 150s linear infinite;
+}
+
+.background-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image: radial-gradient(
+        circle at 50% 50%,
+        #0000 0,
+        #0000 2px,
+        hsl(0 0 4%) 2px
+    );
+    background-size: 8px 8px;
+    --f: blur(1em) brightness(6);
+    animation: hii 10s linear infinite;
+}
+
+@keyframes hi {
+    0% {
+        background-position:
+            0px 220px,
+            3px 220px,
+            151.5px 337.5px,
+            25px 24px,
+            28px 24px,
+            176.5px 150px,
+            50px 16px,
+            53px 16px,
+            201.5px 91px,
+            75px 224px,
+            78px 224px,
+            226.5px 350.5px,
+            100px 19px,
+            103px 19px,
+            251.5px 121px,
+            125px 120px,
+            128px 120px,
+            276.5px 187px,
+            150px 31px,
+            153px 31px,
+            301.5px 120.5px,
+            175px 235px,
+            178px 235px,
+            326.5px 384.5px,
+            200px 121px,
+            203px 121px,
+            351.5px 228.5px,
+            225px 224px,
+            228px 224px,
+            376.5px 364.5px,
+            250px 26px,
+            253px 26px,
+            401.5px 105px,
+            275px 75px,
+            278px 75px,
+            426.5px 180px;
+    }
+
+    to {
+        background-position:
+            0px 6800px,
+            3px 6800px,
+            151.5px 6917.5px,
+            25px 13632px,
+            28px 13632px,
+            176.5px 13758px,
+            50px 5416px,
+            53px 5416px,
+            201.5px 5491px,
+            75px 17175px,
+            78px 17175px,
+            226.5px 17301.5px,
+            100px 5119px,
+            103px 5119px,
+            251.5px 5221px,
+            125px 8428px,
+            128px 8428px,
+            276.5px 8495px,
+            150px 9876px,
+            153px 9876px,
+            301.5px 9965.5px,
+            175px 13391px,
+            178px 13391px,
+            326.5px 13540.5px,
+            200px 14741px,
+            203px 14741px,
+            351.5px 14848.5px,
+            225px 18770px,
+            228px 18770px,
+            376.5px 18910.5px,
+            250px 5082px,
+            253px 5082px,
+            401.5px 5161px,
+            275px 6375px,
+            278px 6375px,
+            426.5px 6480px;
+    }
+}
+
+@keyframes hii {
+    0% {
+        backdrop-filter: var(--f) hue-rotate(0deg);
+    }
+    to {
+        backdrop-filter: var(--f) hue-rotate(360deg);
+    }
+}
+
+:root[data-theme="light"] {
+    --primary-color: #6200EA;
+    --primary-light: #7C4DFF;
+    --primary-dark: #4A148C;
+    --accent-color: #B388FF;
+    --text-light: #FFFFFF;
+    --text-dark: #333333;
+    --background-light: #F5F5F5;
+    --background-dark: #311B92;
+    --table-bg: white;
+    --table-border: #E0E0E0;
+    --input-border: #E0E0E0;
+    --hover-bg: #F3E5F5;
+    --modal-bg: white;
+}
+
+:root[data-theme="dark"] {
+    --primary-color: #1b1b1b;
+    --primary-light: #1b1b1b;
+    --primary-dark: #1b1b1b;
+    --accent-color: #1b1b1b;
+    --text-light: #FFFFFF;
+    --text-dark: #E0E0E0;
+    --background-light: #0F1623;
+    --background-dark: #0A0F1A;
+    --table-bg: #1A2333;
+    --table-border: #2A3547;
+    --input-border: #2A3547;
+    --hover-bg: #1E293B;
+    --modal-bg: #1A2333;
+}
+
+body {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+.navbar {
+    background: transparent;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.right-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.add-btn {
+    padding: 10px 20px;
+    border: 2px solid #2c2c2c;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    transition: all 0.4s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.add-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    transform: scale(0);
+    transition: transform 0.5s ease;
+}
+
+.add-btn:hover::after {
+    transform: scale(4);
+}
+
+.add-btn:hover {
+    border-color: #666666;
+    background: #292929;
+}
+
+.add-btn:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    border: 2px solid #2c2c2c;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    transition: all 0.4s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.nav-btn.active {
+    border-color: #9c27b0;
+    background-color: #292929;
+    box-shadow: 0 0 10px #9c27b0,
+                0 0 20px rgba(156, 39, 176, 0.5),
+                0 0 30px rgba(156, 39, 176, 0.3);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.nav-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    transform: scale(0);
+    transition: transform 0.5s ease;
+}
+
+.nav-btn:hover::after {
+    transform: scale(4);
+}
+
+.nav-btn:hover {
+    border-color: #666666;
+    background: #292929;
+}
+
+.nav-btn:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
+
+.input-container {
+    display: flex;
+    background: white;
+    border-radius: 1rem;
+    background: linear-gradient(173deg, #23272f 0%, #14161a 100%);
+    box-shadow:
+        10px 10px 20px #0e1013,
+        -10px -10px 40px #383e4b;
+    padding: 0.3rem;
+    gap: 0.3rem;
+    max-width: 800px;
+    margin: 150px auto 0;
+}
+
+.input-container input {
+    border-radius: 0.8rem;
+    background: #23272f;
+    box-shadow:
+        inset 5px 5px 10px #0e1013,
+        inset -5px -5px 10px #383e4b,
+        0px 0px 100px rgba(255, 212, 59, 0),
+        0px 0px 100px rgba(255, 102, 0, 0);
+    width: 100%;
+    flex-basis: 100%;
+    padding: 1rem;
+    border: none;
+    border: 1px solid transparent;
+    color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.input-container input:focus {
+    border: 1px solid #9c27b0;
+    outline: none;
+    box-shadow:
+        inset 0px 0px 10px rgba(156, 39, 176, 0.5),
+        inset 0px 0px 10px rgba(142, 36, 170, 0.5),
+        0px 0px 100px rgba(156, 39, 176, 0.5),
+        0px 0px 100px rgba(142, 36, 170, 0.5);
+}
+
+@media (max-width: 500px) {
+    .input-container {
+        flex-direction: column;
+        margin: 150px 1rem 0;
+    }
+
+    .input-container input {
+        border-radius: 0.8rem;
+    }
+}
+
+.depo-container {
+    padding: 2rem;
+    margin: 2rem auto 0;
+    max-width: 1200px;
+}
+
+.depo-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: linear-gradient(145deg, #1a1a1a, #292929);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+}
+
+.depo-table th,
+.depo-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: Helvetica, sans-serif;
+    color: var(--text-light);
+}
+
+.depo-table th {
+    background: linear-gradient(145deg, #292929, #1a1a1a);
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.depo-table tr {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.depo-table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(5px);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.depo-table tr:last-child td {
+    border-bottom: none;
+}
+
+.edit-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.edit-btn:hover {
+    background-color: var(--primary-light);
+    color: var(--text-light);
+    transform: translateY(-2px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #1a1a1a, #292929);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    margin: 10% auto;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 16px;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: var(--primary-color);
+}
+
+#editForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+#editForm input,
+#editForm textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#editForm input:focus,
+#editForm textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(27, 27, 27, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#editForm input::placeholder,
+#editForm textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#editForm button {
+    padding: 1rem;
+    background: linear-gradient(145deg, #1a1a1a, #292929);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+#editForm button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #292929, #1a1a1a);
+}
+
+/* Theme Switch Styles */
+.theme-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+.label {
+    height: 24px;
+    width: 48px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    -webkit-box-shadow: inset 0 0 3px 2px rgba(255, 255, 255, 1),
+        inset 0 0 12px 1px rgba(0, 0, 0, 0.488), 6px 12px 20px rgba(0, 0, 0, 0.096),
+        inset 0 0 0 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 3px 2px rgba(255, 255, 255, 1),
+        inset 0 0 12px 1px rgba(0, 0, 0, 0.488), 6px 12px 20px rgba(0, 0, 0, 0.096),
+        inset 0 0 0 2px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.4s;
+}
+
+.label:hover {
+    transform: perspective(100px) rotateX(5deg) rotateY(-5deg);
+}
+
+#checkbox:checked ~ .label:hover {
+    transform: perspective(100px) rotateX(-5deg) rotateY(5deg);
+}
+
+#checkbox {
+    display: none;
+}
+
+#checkbox:checked ~ .label::before {
+    left: 27px;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 70%);
+    transition: 0.4s;
+}
+
+.label::before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background-color: #000000;
+    background-image: linear-gradient(
+        130deg,
+        #757272 10%,
+        #ffffff 11%,
+        #726f6f 62%
+    );
+    left: 3px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.3), 10px 10px 10px rgba(0, 0, 0, 0.3);
+    transition: 0.4s;
+}
+
+/* From Uiverse.io by Lakshay-art */ 
+.grid, .white, .border, .darkBorderBg, .glow, .input, #poda, #input-mask, #pink-mask,
+#filter-icon, .filterBorder, #main, #search-icon {
+    display: none;
+}
+
+/* Eski arama çubuğu stillerini kaldırıyorum */
+.search-container,
+.search-btn {
+    display: none;
+}
+
+#addModal .modal-content {
+    background: linear-gradient(145deg, #1a1a1a, #292929);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+#addForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+#addForm input,
+#addForm textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#addForm input:focus,
+#addForm textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(27, 27, 27, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#addForm input::placeholder,
+#addForm textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#addForm button {
+    padding: 1rem;
+    background: linear-gradient(145deg, #1a1a1a, #292929);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+#addForm button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #292929, #1a1a1a);
+}
+
+#addModal .modal-title {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.5));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

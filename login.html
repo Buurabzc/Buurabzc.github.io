@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş - Envanter Yönetim Sistemi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <style>
+        :root {
+            --bg-color: #171717;
+            --bg-color-hover: black;
+            --text-color: #ffffff;
+            --input-color: #d3d3d3;
+            --button-bg: #252525;
+            --shadow-color: rgb(5, 5, 5);
+            --primary-color: #2196f3;
+        }
+
+        [data-theme='light'] {
+            --bg-color: #f0f0f0;
+            --bg-color-hover: #e0e0e0;
+            --text-color: #171717;
+            --input-color: #333333;
+            --button-bg: #2196f3;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --primary-color: #6200EA;
+        }
+
+        .background-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            --c: var(--primary-color);
+            background-color: #000;
+            background-image: radial-gradient(4px 100px at 0px 235px, var(--c), #0000),
+                radial-gradient(4px 100px at 300px 235px, var(--c), #0000),
+                radial-gradient(1.5px 1.5px at 150px 117.5px, var(--c) 100%, #0000 150%),
+                radial-gradient(4px 100px at 0px 252px, var(--c), #0000),
+                radial-gradient(4px 100px at 300px 252px, var(--c), #0000),
+                radial-gradient(1.5px 1.5px at 150px 126px, var(--c) 100%, #0000 150%),
+                radial-gradient(4px 100px at 0px 150px, var(--c), #0000),
+                radial-gradient(4px 100px at 300px 150px, var(--c), #0000),
+                radial-gradient(1.5px 1.5px at 150px 75px, var(--c) 100%, #0000 150%),
+                radial-gradient(4px 100px at 0px 253px, var(--c), #0000),
+                radial-gradient(4px 100px at 300px 253px, var(--c), #0000),
+                radial-gradient(1.5px 1.5px at 150px 126.5px, var(--c) 100%, #0000 150%);
+            background-size:
+                300px 235px,
+                300px 235px,
+                300px 235px,
+                300px 252px,
+                300px 252px,
+                300px 252px,
+                300px 150px,
+                300px 150px,
+                300px 150px,
+                300px 253px,
+                300px 253px,
+                300px 253px;
+            animation: hi 150s linear infinite;
+        }
+
+        .background-wrapper::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background-image: radial-gradient(
+                circle at 50% 50%,
+                #0000 0,
+                #0000 2px,
+                hsl(0 0 4%) 2px
+            );
+            background-size: 8px 8px;
+            --f: blur(1em) brightness(6);
+            animation: hii 10s linear infinite;
+        }
+
+        @keyframes hi {
+            0% {
+                background-position:
+                    0px 220px,
+                    3px 220px,
+                    151.5px 337.5px,
+                    25px 24px,
+                    28px 24px,
+                    176.5px 150px,
+                    50px 16px,
+                    53px 16px,
+                    201.5px 91px,
+                    75px 224px,
+                    78px 224px,
+                    226.5px 350.5px;
+            }
+
+            to {
+                background-position:
+                    0px 6800px,
+                    3px 6800px,
+                    151.5px 6917.5px,
+                    25px 13632px,
+                    28px 13632px,
+                    176.5px 13758px,
+                    50px 5416px,
+                    53px 5416px,
+                    201.5px 5491px,
+                    75px 17175px,
+                    78px 17175px,
+                    226.5px 17301.5px;
+            }
+        }
+
+        @keyframes hii {
+            0% {
+                backdrop-filter: var(--f) hue-rotate(0deg);
+            }
+            to {
+                backdrop-filter: var(--f) hue-rotate(360deg);
+            }
+        }
+
+        .form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 2em;
+            background: linear-gradient(145deg, #1a1a1a, #292929);
+            border-radius: 25px;
+            transition: .4s ease-in-out;
+            min-width: 350px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .form:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            border: 1px solid var(--bg-color-hover);
+        }
+
+        #heading {
+            text-align: center;
+            margin: 1em;
+            color: var(--text-color);
+            font-size: 1.5em;
+            font-weight: 500;
+            background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.5));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .field {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5em;
+            border-radius: 25px;
+            padding: 0.8em;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: inset 2px 5px 10px var(--shadow-color);
+        }
+
+        .input-icon {
+            height: 1.3em;
+            width: 1.3em;
+            fill: var(--text-color);
+        }
+
+        .input-field {
+            background: none;
+            border: none;
+            outline: none;
+            width: 100%;
+            color: var(--input-color);
+            font-size: 1rem;
+        }
+
+        .input-field::placeholder {
+            color: var(--input-color);
+            opacity: 0.7;
+        }
+
+        .form .btn {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+
+        .button1 {
+            padding: 0.8em 1.5em;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            transition: .4s ease-in-out;
+            background: linear-gradient(145deg, #1a1a1a, #292929);
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1em;
+            min-width: 150px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .button1:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(145deg, #292929, #1a1a1a);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-container {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1001;
+        }
+
+        [data-theme='dark'] .form {
+            background: linear-gradient(145deg, #292929, #1a1a1a);
+        }
+
+        [data-theme='dark'] .button1 {
+            background: linear-gradient(145deg, #292929, #1a1a1a);
+        }
+
+        [data-theme='dark'] .button1:hover {
+            background: linear-gradient(145deg, #1a1a1a, #292929);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-wrapper"></div>
+    
+    <div class="theme-container">
+        <input type="checkbox" name="checkbox" id="checkbox" class="theme-switch__checkbox" />
+        <label for="checkbox" class="label"></label>
+    </div>
+
+    <form id="loginForm" class="form">
+        <p id="heading">Envanter Yönetim Sistemi</p>
+        <div class="field">
+            <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"></path>
+            </svg>
+            <input id="username" autocomplete="off" placeholder="Kullanıcı Adı" class="input-field" type="text" required>
+        </div>
+        <div class="field">
+            <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+            </svg>
+            <input id="password" placeholder="Şifre" class="input-field" type="password" required>
+        </div>
+        <div class="btn">
+            <button type="submit" class="button1">Giriş Yap</button>
+        </div>
+    </form>
+
+    <script src="login.js"></script>
+</body>
+</html> 
